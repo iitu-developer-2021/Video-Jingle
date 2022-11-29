@@ -4,9 +4,7 @@ class SocketService{
     private socket!: ReturnType<typeof io>
 
     setupConnection(){
-        this.socket = io(import.meta.env.VITE_SOCKET_ENDPOINT, {
-            transports: ['websocket']
-        })
+        this.socket = io(import.meta.env.VITE_SOCKET_ENDPOINT)
     }
 
     checkConnection(){
