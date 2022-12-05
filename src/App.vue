@@ -95,27 +95,30 @@
         </div>
       </div>
     </div>
-    <div class="messenger_container"></div>
+    <div class="messenger_container">
+      <div class="messages_container"></div>
+      <div class="new_message_container display_none">
+        <input type="text" class="new_message_input" placeholder="Type your text..." />
+        <button class="send_message_button">
+          <img src="/images/sendMessageButton.png" class="send_message_button_image" alt="Send Message Button" />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { onMounted } from 'vue';
-import socket from './services/socketio.service';
 import { defineComponent } from 'vue';
+import socket from './services/socketio.service';
 
 export default defineComponent({
   setup() {
     onMounted(() => {
       socket.setupConnection();
-      socket.checkConnection();
     });
   },
 });
 </script>
 
-<style scoped>
-.test {
-  text-align: center;
-}
-</style>
+<style scoped></style>
